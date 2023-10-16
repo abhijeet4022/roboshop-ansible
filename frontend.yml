@@ -1,0 +1,5 @@
+- name: Roboshop Project - Frontend
+  hosts: all
+  become: true
+  roles:
+    - frontend
