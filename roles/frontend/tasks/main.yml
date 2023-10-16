@@ -1,9 +1,9 @@
-- name: Install NGINX
+- name: Installing NGINX
   ansible.builtin.yum:
     name: nginx
     state: latest
 
-- name: Starting NGINX
+- name: Starting & Enabling NGINX
   ansible.builtin.systemd:
     name: nginx
     state: restarted
