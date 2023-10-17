@@ -1,5 +1,14 @@
 - name: Roboshop Project - Frontend
   hosts: all
   become: true
-  roles:
-    - frontend
+  tasks:
+    - name: Installing NGINX
+      ansible.builtin.yum:
+        name: nginx
+        state: latest
+
+    - name: Starting & Enabling NGINX
+      ansible.builtin.systemd:
+        name: nginx
+        state: restarted
+        enabled: yes
