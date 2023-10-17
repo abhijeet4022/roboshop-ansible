@@ -1,4 +1,4 @@
-- name: Roboshop Project - Frontend
+- name: Roboshop Project - Frontend Configuration.
   hosts: all
   become: true
   vars:
@@ -6,7 +6,7 @@
   tasks:
     - name: Installing NGINX Web-Server
       ansible.builtin.yum:
-        name: nginx
+        name: "{{component}}"
         state: latest
 
     - name: Configuring the NGINX reverse-proxy.
@@ -32,6 +32,7 @@
 
     - name: Starting & Enabling NGINX
       ansible.builtin.systemd:
-        name: nginx
+        name: "{{component}}"
         state: restarted
         enabled: yes
+        daemon_reload: true
