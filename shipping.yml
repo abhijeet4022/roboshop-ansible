@@ -1,8 +1,9 @@
-- name: R
+- name: Roboshop Project - Shipping Configuration.
   hosts: all
   become: yes
   vars:
     component: shipping
+    schema: true
   tasks:
-    - name: dd
+    - name: Java Setup.
       ansible.builtin.import_tasks: java.yml

@@ -6,3 +6,4 @@
 - name: Loading the mongodb schema.
   ansible.builtin.shell: mysql -h mysql-dev.learntechnology.tech -uroot -pRoboShop@1 </app/schema/{{component}}.sql
 
+
