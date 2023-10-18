@@ -21,5 +21,12 @@
         state: restarted
         enabled: yes
 
-    - name: Configure the erlang repository.
-      ansible.builtin.shell: rabbitmqctl add_user roboshop roboshop123 ; rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+    - name: Add RabbitMQ user.
+      community.rabbitmq.rabbitmq_user:
+        user: rabbitmq
+        password: roboshop123
+        vhost: /
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
+        state: present

@@ -11,7 +11,7 @@
   ansible.builtin.import_tasks: app-preq.yml
 
 - name: Build the {{component}} service
-  ansible.builtin.shell: pip3.6 install -r /app/requirements.txt
+  ansible.builtin.shell: pip3.6 install -r requirements.txt
 #  args:
 #    chdir: /app
 
