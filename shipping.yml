@@ -1,0 +1,8 @@
+- name: R
+  hosts: all
+  become: yes
+  vars:
+    component: shipping
+  tasks:
+    - name: dd
+      ansible.builtin.import_tasks: java.yml

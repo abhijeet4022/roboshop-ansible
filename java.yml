@@ -1,0 +1,21 @@
+- name: Installing Maven & bash-completion package.
+  ansible.builtin.yum:
+    name:
+      - maven
+      - bash-completion
+    state: installed
+
+- name: App Pre-Requisite
+  ansible.builtin.import_tasks: app-preq.yml
+
+- name: Installing the dependencies for the Application- /app/package.json.
+  ansible.builtin.shell: mvn clean package ; mv /app/target/{{component}}-1.0.jar /app/{{component}}.jar
+  args:
+    chdir: /app
+
+- name: Schema Setup
+  ansible.builtin.import_tasks: mysql-schema.yml
+  when: schema is defined
+
+- name: Systemd Setup
+  ansible.builtin.import_tasks: systemd-setup.yml
