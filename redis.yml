@@ -1,0 +1,57 @@
+- name: Roboshop Project - Redis Configuration.
+  hosts: all
+  become: yes
+  vars:
+    component: redis
+  tasks:
+    - name: Installing the Repository.
+      ansible.builtin.yum:
+        name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+        state: installed
+
+    - name: Enable the remi repo
+      ansible.builtin.shell: yum module enable redis:remi-6.2 -y
+
+    - name: Installing the Redis.
+      ansible.builtin.yum:
+        name:
+          - "{{component}}"
+          - bash-completion
+        state: installed
+
+    - name: Updating the listen address in Redis configuration file.
+      ansible.builtin.replace:
+        path: /etc/redis.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+
+    - name: Updating the listen address in Redis configuration file.
+      ansible.builtin.replace:
+        path: /etc/redis/redis.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+
+    - name: Starting & Enabling the {{component}} service.
+      ansible.builtin.systemd:
+        name: "{{component}}"
+        state: restarted
+        enabled: yes
+
+
+
+
+
+
+
+
+
+
+
+
+#
+#  #Start & Enable Redis Service
+#systemctl enable redis
+#systemctl restart redis
+#
+#echo "-----------Script Run Successfully-----------"
+#
