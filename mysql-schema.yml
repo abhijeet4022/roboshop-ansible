@@ -3,7 +3,7 @@
     name: mysql
     state: installed
 
-- name: Loading the mongodb schema.
+- name: Loading the mysql schema.
   ansible.builtin.shell: mysql -h mysql-dev.learntechnology.tech -uroot -pRoboShop@1 </app/schema/{{component}}.sql
 
 
