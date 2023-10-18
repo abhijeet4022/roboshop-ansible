@@ -15,7 +15,7 @@
           - bash-completion
         state: installed
 
-    - name: Start and Enable the rabbitmq systemd system service.
+    - name: Start and Enable the RabbitMQ systemd  service.
       ansible.builtin.systemd:
         name: rabbitmq-server
         state: restarted
