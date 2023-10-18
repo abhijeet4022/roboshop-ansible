@@ -11,9 +11,9 @@
   ansible.builtin.import_tasks: app-preq.yml
 
 - name: Build the {{component}} service
-  ansible.builtin.shell: pip3.6 install
-  args:
-    chdir: /app
+  ansible.builtin.shell: pip3.6 install -r /app/requirements.txt
+#  args:
+#    chdir: /app
 
 - name: Systemd Setup
   ansible.builtin.import_tasks: systemd-setup.yml
