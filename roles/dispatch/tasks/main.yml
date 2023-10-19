@@ -1,0 +1,5 @@
+- name: go-lang Systemd setup
+  ansible.builtin.import_role:
+    name: common
+    import_tasks: go-lang.yml
+

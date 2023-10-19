@@ -1,0 +1,17 @@
+- name: Install golang
+  ansible.builtin.yum:
+    name:
+      - golang
+      - bash-completion
+    state: installed
+
+- name: App Pre-Requisite
+  ansible.builtin.import_tasks: app-preq.yml
+
+- name: Build the {{component}} service
+  ansible.builtin.shell: go mod init dispatch ; go get ; go build
+  args:
+    chdir: /app
+
+- name: "{{component}}" Systemd setup
+  ansible.builtin.import_tasks: systemd-setup.yml
