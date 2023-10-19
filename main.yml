@@ -1,4 +1,4 @@
-- name: Roboshop Project Configuration:-
+- name: "Roboshop Project Configuration:"
   hosts: all
   become: yes
   roles:
