@@ -12,7 +12,7 @@
 
 - name: Build the {{component}} service
   ansible.builtin.shell: pip3.6 install -r requirements.txt
-    args:
+  args:
     chdir: /app
 
 - name: Systemd Setup
