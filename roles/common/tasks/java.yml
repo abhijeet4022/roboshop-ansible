@@ -1,4 +1,4 @@
-- name: Installing Maven & bash-completion package.
+- name: Install Maven Package.
   ansible.builtin.yum:
     name:
       - maven

@@ -1,7 +1,7 @@
 - name: Configuring the repo for NodeJS.
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-- name: Installing NodeJS & bash-completion package.
+- name: Install NodeJS Package.
   ansible.builtin.yum:
     name:
       - nodejs
