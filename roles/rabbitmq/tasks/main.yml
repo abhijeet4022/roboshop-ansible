@@ -19,7 +19,7 @@
 
 - name: Add RabbitMQ user.
   community.rabbitmq.rabbitmq_user:
-    user: rabbitmq
+    user: roboshop
     password: roboshop123
     vhost: /
     configure_priv: .*
