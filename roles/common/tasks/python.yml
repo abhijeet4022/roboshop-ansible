@@ -12,8 +12,8 @@
 
 - name: Build the {{component}} service
   ansible.builtin.shell: pip3.6 install -r requirements.txt
-#  args:
-#    chdir: /app
+    args:
+    chdir: /app
 
 - name: Systemd Setup
   ansible.builtin.import_tasks: systemd-setup.yml

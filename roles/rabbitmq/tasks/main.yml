@@ -4,7 +4,7 @@
 - name: Configure the RabbitMQ repository.
   ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
 
-- name: Install RabbitMQ & Bash-Completion
+- name: Install RabbitMQ
   ansible.builtin.yum:
     name:
       - rabbitmq-server

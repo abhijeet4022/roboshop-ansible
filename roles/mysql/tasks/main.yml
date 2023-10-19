@@ -1,7 +1,7 @@
 - name: Disable the MySql default repo.
   ansible.builtin.shell: yum module disable mysql -y
 
-- name: Configuring mysql5.7 repository repo.
+- name: Configuring mysql5.7 repository.
   ansible.builtin.copy:
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
