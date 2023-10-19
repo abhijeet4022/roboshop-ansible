@@ -1,6 +1,6 @@
 - name: Installing NGINX Web-Server
   ansible.builtin.yum:
-    name: "{{component}}"
+    name: nginx
     state: latest
 
 - name: Configuring the NGINX reverse-proxy.
@@ -26,7 +26,7 @@
 
 - name: Starting & Enabling NGINX
   ansible.builtin.systemd:
-    name: "{{component}}"
+    name: nginx
     state: restarted
     enabled: yes
     daemon_reload: true
