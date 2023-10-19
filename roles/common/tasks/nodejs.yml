@@ -11,7 +11,7 @@
 - name: App Pre-Requisite
   ansible.builtin.import_tasks: app-preq.yml
 
-- name: Installing the dependencies for the Application- /app/package.json.
+- name: Install Application Dependency:- /app/package.json.
   ansible.builtin.shell: npm install
   args:
     chdir: /app
