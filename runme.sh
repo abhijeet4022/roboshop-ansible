@@ -3,7 +3,7 @@ components=("frontend" "mongodb" "catalogue" "redis" "user" "cart" "mysql" "ship
 password=ansible_password
 
 for component in "${components[@]}"; do
-  inventory="${component}-${domain}"
+  inventory="${component}-${domain},"
   ansible-playbook -i "$inventory" -e ansible_user=centos -e ansible_password="$password" -e component="$component" main.yml
 done
 
