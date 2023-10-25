@@ -8,7 +8,7 @@ fi
 
 for component in "${components[@]}"; do
   inventory="${component}-${domain},"
-  echo -e "\e[33m\nConfiguring the "${component}" component\e[0m"
+  echo -e "\e[32m\nConfiguring the "${component}" component\e[0m"
   ansible-playbook -i "$inventory" -e ansible_user=centos -e ansible_password="$password" -e component="$component" main.yml
 done
 
