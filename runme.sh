@@ -1,5 +1,5 @@
 domain=dev.learntechnology.tech
-components=("frontend" "mongodb" "catalogue" "redis" "user" "cart" "mysql" "shipping" "rabbitmq" "payment" "dispatch")
+components=("frontend" "mongodb" "catalogue" "redis" "user" "cart" "mysql" "shipping" "rabbitmq" "payment") #"dispatch")
 password="$ansible_password"
 if [ -z "${password}" ]; then
   echo -e "\e[31mWarning: Please mention the password for ansible_user.\e[0m"
