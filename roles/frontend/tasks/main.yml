@@ -3,7 +3,9 @@
 
 - name: Installing NGINX Web-Server
   ansible.builtin.yum:
-    name: nginx
+    name:
+      - nginx
+      - bash-completion
     state: latest
 
 - name: Configuring the NGINX reverse-proxy.
